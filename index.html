@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARS Milk Agencies | Premium Dairy Products</title>
+    <meta name="description" content="Managing dairy freshness with ARS Milk Agencies. High-quality milk, ice cream, and beverages delivered to your doorstep.">
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body data-theme="light">
+    <!-- Navbar -->
+    <nav>
+        <div class="container flex justify-between align-center" style="height: 100%;">
+            <a href="index.html" class="logo">
+                <i data-lucide="milk"></i>
+                ARS Milk Agencies
+            </a>
+            
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#products">Products</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </div>
+            
+            <div class="flex align-center gap-2">
+                <button id="theme-toggle" class="btn btn-ghost" title="Toggle Dark Mode">
+                    <i data-lucide="sun"></i>
+                </button>
+                <a href="login.html" class="btn btn-outline" id="login-nav-btn">Admin Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="section-padding hero" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('assets/hero.png'); background-size: cover; background-position: center; min-height: 80vh; display: flex; align-items: center; color: white;">
+            <div class="container text-center">
+                <h1 style="font-size: 4rem; margin-bottom: 24px; font-weight: 800; line-height: 1.1;">Freshness in Every Drop</h1>
+                <p style="font-size: 1.25rem; margin-bottom: 40px; opacity: 0.9;">Pure, nutritious, and ethically sourced dairy products for your family.</p>
+                <div class="flex justify-center gap-2">
+                    <a href="#products" class="btn btn-primary" style="padding: 16px 40px; font-size: 1.1rem;">View Products</a>
+                    <a href="#contact" class="btn btn-outline" style="padding: 16px 40px; font-size: 1.1rem; border-color: white; color: white;">Contact Us</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Releases -->
+        <section class="section-padding" style="background-color: var(--secondary);">
+            <div class="container">
+                <div class="flex justify-between align-center" style="margin-bottom: 40px;">
+                    <div>
+                        <h2 style="font-size: 2.25rem;">New Releases</h2>
+                        <p style="color: var(--text-muted);">Fresh from our dairy farms</p>
+                    </div>
+                </div>
+                <div id="new-products-grid" class="products-grid">
+                    <!-- Dynamic Content -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Sellers -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="flex justify-between align-center" style="margin-bottom: 40px;">
+                    <div>
+                        <h2 style="font-size: 2.25rem;">Our Best Sellers</h2>
+                        <p style="color: var(--text-muted);">The favorites of our community</p>
+                    </div>
+                </div>
+                <div id="best-products-grid" class="products-grid">
+                    <!-- Dynamic Content -->
+                </div>
+            </div>
+        </section>
+
+        <!-- All Products with Filtering -->
+        <section id="products" class="section-padding" style="background-color: var(--secondary);">
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 60px;">
+                    <h2 style="font-size: 2.5rem;">Explore All Products</h2>
+                    <div style="max-width: 600px; margin: 30px auto 0;" class="flex flex-column gap-2">
+                        <div style="position: relative;">
+                            <input type="text" id="product-search" placeholder="Search products..." style="width: 100%; padding: 16px 50px 16px 20px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--card-bg); font-size: 1rem; color: var(--text);">
+                            <i data-lucide="search" style="position: absolute; right: 20px; top: 16px; color: var(--text-muted);"></i>
+                        </div>
+                        
+                        <div id="category-filters" class="flex justify-center flex-wrap gap-2">
+                            <button class="btn btn-primary category-btn active" data-category="All">All</button>
+                            <button class="btn btn-ghost category-btn" data-category="Dairy">Dairy</button>
+                            <button class="btn btn-ghost category-btn" data-category="Ice Cream">Ice Cream</button>
+                            <button class="btn btn-ghost category-btn" data-category="Beverages">Beverages</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="all-products-grid" class="products-grid">
+                    <!-- Dynamic Content -->
+                </div>
+                
+                <div id="no-results" class="text-center hidden" style="padding: 60px 0;">
+                    <i data-lucide="search-x" style="width: 64px; height: 64px; color: var(--text-muted); margin-bottom: 16px;"></i>
+                    <h3>No products found</h3>
+                    <p style="color: var(--text-muted);">Try searching for something else</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section id="services" class="section-padding">
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 60px;">
+                    <h2 style="font-size: 2.5rem;">Our Professional Services</h2>
+                    <p style="color: var(--text-muted);">Beyond products, we provide solutions</p>
+                </div>
+                <div id="services-grid" class="services-grid">
+                    <!-- Dynamic Content -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-padding" style="background-color: var(--secondary);">
+            <div class="container">
+                <div class="card" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; padding: 60px;">
+                    <div>
+                        <h2 style="font-size: 2.25rem; margin-bottom: 24px;">Get In Touch</h2>
+                        <p style="color: var(--text-muted); margin-bottom: 32px;">Have questions about our products or subscription plans? Reach out to us!</p>
+                        
+                        <div class="flex flex-column gap-4">
+                            <div class="flex align-center gap-2">
+                                <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--primary-light); color: var(--primary); display: flex; align-items: center; justify-content: center;">
+                                    <i data-lucide="phone"></i>
+                                </div>
+                                <div>
+                                    <p style="font-weight: 600;">Phone</p>
+                                    <p style="color: var(--text-muted);">+91 98765 43210</p>
+                                </div>
+                            </div>
+                            <div class="flex align-center gap-2">
+                                <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--primary-light); color: var(--primary); display: flex; align-items: center; justify-content: center;">
+                                    <i data-lucide="mail"></i>
+                                </div>
+                                <div>
+                                    <p style="font-weight: 600;">Email</p>
+                                    <p style="color: var(--text-muted);">info@arsmilk.com</p>
+                                </div>
+                            </div>
+                            <div class="flex align-center gap-2">
+                                <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--primary-light); color: var(--primary); display: flex; align-items: center; justify-content: center;">
+                                    <i data-lucide="map-pin"></i>
+                                </div>
+                                <div>
+                                    <p style="font-weight: 600;">Address</p>
+                                    <p style="color: var(--text-muted);">123 Dairy Farm Road, Amulya Nagar, India</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form id="contact-form" class="flex flex-column gap-2">
+                        <div class="flex flex-column gap-1">
+                            <label style="font-weight: 500;">Name</label>
+                            <input type="text" placeholder="Your Name" required style="padding: 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg);">
+                        </div>
+                        <div class="flex flex-column gap-1">
+                            <label style="font-weight: 500;">Email</label>
+                            <input type="email" placeholder="Your Email" required style="padding: 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg);">
+                        </div>
+                        <div class="flex flex-column gap-1">
+                            <label style="font-weight: 500;">Message</label>
+                            <textarea placeholder="How can we help?" rows="4" required style="padding: 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); resize: none;"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 16px;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="padding: 40px 0; border-top: 1px solid var(--border); margin-top: 80px;">
+        <div class="container text-center">
+            <div class="logo justify-center" style="margin-bottom: 16px;">
+                <i data-lucide="milk"></i>
+                ARS Milk Agencies
+            </div>
+            <p style="color: var(--text-muted);">&copy; 2026 ARS Milk Agencies. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
+
+    <!-- Additional Styles for Grid -->
+    <style>
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 32px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 32px;
+        }
+        .category-btn.active {
+            background-color: var(--primary) !important;
+            color: white !important;
+        }
+    </style>
+
+    <!-- Scripts -->
+    <script src="js/auth.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

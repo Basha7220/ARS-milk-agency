@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | ARS Milk Agencies</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body data-theme="light" style="background-color: var(--secondary); height: 100vh; display: flex; align-items: center; justify-content: center;">
+    
+    <div class="container" style="max-width: 450px;">
+        <div class="text-center" style="margin-bottom: 40px;">
+            <a href="index.html" class="logo justify-center" style="font-size: 2rem; margin-bottom: 24px;">
+                <i data-lucide="milk" style="width: 48px; height: 48px;"></i>
+                ARS Milk
+            </a>
+            <h1>Admin Portal</h1>
+            <p style="color: var(--text-muted);">Access your dairy dashboard</p>
+        </div>
+
+        <div class="card" style="padding: 40px;">
+            <form id="login-form" class="flex flex-column gap-4">
+                <div class="flex flex-column gap-1">
+                    <label style="font-weight: 500;">Username</label>
+                    <div style="position: relative;">
+                        <input type="text" name="username" placeholder="Enter username" required style="width: 100%; padding: 12px 12px 12px 40px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg);">
+                        <i data-lucide="user" style="position: absolute; left: 12px; top: 12px; width: 18px; color: var(--text-muted);"></i>
+                    </div>
+                </div>
+                
+                <div class="flex flex-column gap-1">
+                    <label style="font-weight: 500;">Password</label>
+                    <div style="position: relative;">
+                        <input type="password" name="password" placeholder="Enter password" required style="width: 100%; padding: 12px 12px 12px 40px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg);">
+                        <i data-lucide="lock" style="position: absolute; left: 12px; top: 12px; width: 18px; color: var(--text-muted);"></i>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="margin-top: 16px; height: 48px;">Login to Dashboard</button>
+            </form>
+            
+            <div style="margin-top: 24px; padding: 16px; background: var(--primary-light); border-radius: 8px; font-size: 0.85rem; color: var(--primary); text-align: center;">
+                <p><strong>Demo Credentials:</strong><br>admin / admin123</p>
+            </div>
+        </div>
+
+        <div class="text-center" style="margin-top: 24px;">
+            <a href="index.html" class="flex align-center justify-center gap-1" style="text-decoration: none; color: var(--text-muted); font-size: 0.9rem;">
+                <i data-lucide="arrow-left" style="width: 16px;"></i>
+                Back to Website
+            </a>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

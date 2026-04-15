@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | ARS Milk Agencies</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body data-theme="light">
+    
+    <div class="flex" style="min-height: 100vh;">
+        <!-- Sidebar -->
+        <aside style="width: 280px; background: var(--card-bg); border-right: 1px solid var(--border); padding: 32px 16px; position: sticky; top: 0; height: 100vh;">
+            <div class="logo" style="margin-bottom: 48px; padding-left: 16px;">
+                <i data-lucide="milk"></i>
+                ARS Admin
+            </div>
+
+            <nav class="flex flex-column gap-2">
+                <button class="admin-nav-item btn btn-ghost justify-start active" data-target="dashboard" style="width: 100%; padding: 12px 16px;">
+                    <i data-lucide="layout-dashboard" style="width: 20px;"></i>
+                    Dashboard
+                </button>
+                <button class="admin-nav-item btn btn-ghost justify-start" data-target="products-mgmt" style="width: 100%; padding: 12px 16px;">
+                    <i data-lucide="package" style="width: 20px;"></i>
+                    Products
+                </button>
+                <button class="admin-nav-item btn btn-ghost justify-start" data-target="services-mgmt" style="width: 100%; padding: 12px 16px;">
+                    <i data-lucide="settings" style="width: 20px;"></i>
+                    Services
+                </button>
+                <hr style="margin: 16px 0; border: none; border-top: 1px solid var(--border);">
+                <a href="index.html" class="btn btn-ghost justify-start" style="width: 100%; padding: 12px 16px;">
+                    <i data-lucide="external-link" style="width: 20px;"></i>
+                    View Website
+                </a>
+                <button id="logout-btn" class="btn btn-ghost justify-start" style="width: 100%; padding: 12px 16px; color: #ef4444;">
+                    <i data-lucide="log-out" style="width: 20px;"></i>
+                    Logout
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main style="flex: 1; padding: 40px; background: var(--secondary);">
+            <header class="flex justify-between align-center" style="margin-bottom: 40px;">
+                <div>
+                    <h1 id="page-title">Admin Dashboard</h1>
+                    <p style="color: var(--text-muted);">Welcome back, Admin</p>
+                </div>
+                <div class="flex align-center gap-2">
+                    <button class="btn btn-ghost" id="theme-toggle">
+                        <i data-lucide="sun"></i>
+                    </button>
+                    <div class="flex align-center gap-2" style="padding: 8px 16px; background: var(--card-bg); border-radius: 30px; border: 1px solid var(--border);">
+                        <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700;">A</div>
+                        <span style="font-weight: 600;">Admin</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Section: Dashboard -->
+            <section id="dashboard" class="admin-section">
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 48px;">
+                    <div class="card flex align-center gap-4">
+                        <div style="width: 56px; height: 56px; border-radius: 12px; background: var(--primary-light); color: var(--primary); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="package" style="width: 28px; height: 28px;"></i>
+                        </div>
+                        <div>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">Total Products</p>
+                            <h2 id="stat-products" style="font-size: 2rem;">0</h2>
+                        </div>
+                    </div>
+                    <div class="card flex align-center gap-4">
+                        <div style="width: 56px; height: 56px; border-radius: 12px; background: #FFEAAD; color: #926C00; display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="settings" style="width: 28px; height: 28px;"></i>
+                        </div>
+                        <div>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">Total Services</p>
+                            <h2 id="stat-services" style="font-size: 2rem;">0</h2>
+                        </div>
+                    </div>
+                    <div class="card flex align-center gap-4">
+                        <div style="width: 56px; height: 56px; border-radius: 12px; background: #D1FAE5; color: #059669; display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="layers" style="width: 28px; height: 28px;"></i>
+                        </div>
+                        <div>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">Categories</p>
+                            <h2 style="font-size: 2rem;">3</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 style="margin-bottom: 24px;">Quick Tip</h3>
+                    <p style="color: var(--text-muted);">Use the sidebar to manage your products and services. All changes are saved instantly to your local storage.</p>
+                </div>
+            </section>
+
+            <!-- Section: Product Management -->
+            <section id="products-mgmt" class="admin-section hidden">
+                <div class="flex justify-between align-center" style="margin-bottom: 24px;">
+                    <h3>Product Inventory</h3>
+                    <button id="add-product-btn" class="btn btn-primary">
+                        <i data-lucide="plus" style="width: 20px;"></i>
+                        Add New Product
+                    </button>
+                </div>
+                <div id="admin-products-list">
+                    <!-- Dynamic Table Content -->
+                </div>
+            </section>
+
+            <!-- Section: Service Management -->
+            <section id="services-mgmt" class="admin-section hidden">
+                <div class="flex justify-between align-center" style="margin-bottom: 24px;">
+                    <h3>Service Management</h3>
+                    <!-- For simplicity, only edit/delete for services in this demo -->
+                </div>
+                <div id="admin-services-list">
+                    <!-- Dynamic Content -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <style>
+        .admin-nav-item.active {
+            background-color: var(--primary-light) !important;
+            color: var(--primary) !important;
+        }
+        .btn-sm { padding: 8px !important; }
+        .justify-start { justify-content: flex-start !important; }
+    </style>
+
+    <script src="js/auth.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Handle Add Product Modal
+        document.getElementById('add-product-btn').onclick = () => {
+            const content = `
+                <form id="add-product-form" class="flex flex-column gap-4">
+                    <div class="flex flex-column gap-1">
+                        <label>Product Name</label>
+                        <input type="text" id="p-name" required style="padding: 10px; border: 1px solid var(--border); border-radius: 8px;">
+                    </div>
+                    <div class="flex flex-column gap-1">
+                        <label>Price (₹)</label>
+                        <input type="number" id="p-price" required style="padding: 10px; border: 1px solid var(--border); border-radius: 8px;">
+                    </div>
+                    <div class="flex flex-column gap-1">
+                        <label>Category</label>
+                        <select id="p-category" style="padding: 10px; border: 1px solid var(--border); border-radius: 8px;">
+                            <option>Dairy</option>
+                            <option>Ice Cream</option>
+                            <option>Beverages</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-column gap-1">
+                        <label>Image URL</label>
+                        <input type="url" id="p-image" placeholder="https://..." required style="padding: 10px; border: 1px solid var(--border); border-radius: 8px;">
+                    </div>
+                    <div class="flex gap-4">
+                        <label class="flex align-center gap-2">
+                            <input type="checkbox" id="p-isNew"> New Release
+                        </label>
+                        <label class="flex align-center gap-2">
+                            <input type="checkbox" id="p-isBestSeller"> Best Seller
+                        </label>
+                    </div>
+                </form>
+            `;
+
+            UI.showModal('Add New Product', content, () => {
+                const name = document.getElementById('p-name').value;
+                const price = document.getElementById('p-price').value;
+                const category = document.getElementById('p-category').value;
+                const image = document.getElementById('p-image').value;
+                const isNew = document.getElementById('p-isNew').checked;
+                const isBestSeller = document.getElementById('p-isBestSeller').checked;
+
+                if (!name || !price || !image) {
+                    UI.showToast('Please fill all fields', 'warning');
+                    return false;
+                }
+
+                Products.add({ name, price: Number(price), category, image, isNew, isBestSeller });
+                UI.showToast('Product added successfully', 'success');
+                
+                // Refresh list
+                if (typeof renderAdminProducts === 'function') renderAdminProducts();
+                if (typeof updateAdminStats === 'function') updateAdminStats();
+                
+                return true;
+            });
+        };
+    </script>
+</body>
+</html>
