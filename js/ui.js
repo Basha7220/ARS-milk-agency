@@ -102,6 +102,7 @@ const UI = {
 
     // Product Card Template
     createProductCard(product) {
+        const catClass = product.category.toLowerCase().replace(' ', '');
         const card = document.createElement('div');
         card.className = 'card flex flex-column gap-2';
         card.innerHTML = `
@@ -113,11 +114,11 @@ const UI = {
                 </div>
             </div>
             <div class="flex-column gap-1">
-                <span style="color: var(--primary); font-size: 0.85rem; font-weight: 600; text-transform: uppercase;">${product.category}</span>
+                <span style="color: var(--color-${catClass}); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">${product.category}</span>
                 <h3 style="font-size: 1.15rem;">${product.name}</h3>
                 <div class="flex justify-between align-center" style="margin-top: 8px;">
                     <span style="font-size: 1.25rem; font-weight: 700;">₹${product.price}</span>
-                    <button class="btn btn-primary btn-sm buy-btn" data-id="${product.id}" style="padding: 8px 16px; font-size: 0.9rem;">
+                    <button class="btn btn-primary btn-sm buy-btn" data-id="${product.id}" style="padding: 8px 16px; font-size: 0.9rem; background: var(--grad-primary);">
                         <i data-lucide="shopping-cart" style="width: 16px; height: 16px;"></i>
                         Order
                     </button>

@@ -17,6 +17,19 @@
     /* System */
     --radius: 16px;
     --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Category Colors */
+    --color-dairy: #0077B6;
+    --color-dairy-light: #CAF0F8;
+    --color-icecream: #D62828;
+    --color-icecream-light: #FFD6D6;
+    --color-beverages: #2D6A4F;
+    --color-beverages-light: #D8F3DC;
+    
+    /* Gradients */
+    --grad-primary: linear-gradient(135deg, #0077B6, #00B4D8);
+    --grad-accent: linear-gradient(135deg, #FFB703, #FB8500);
+    --grad-dark: linear-gradient(135deg, #0D1B2A, #1B263B);
 }
 
 [data-theme="dark"] {
@@ -31,6 +44,11 @@
     --border: #415A77;
     --shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     --glass: rgba(13, 27, 42, 0.8);
+
+    /* Category Colors - Dark Adjustments */
+    --color-dairy-light: rgba(202, 240, 248, 0.1);
+    --color-icecream-light: rgba(214, 40, 40, 0.1);
+    --color-beverages-light: rgba(45, 106, 79, 0.1);
 }
 
 * {
